@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Dinner 2025 - The Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #1a1a1a;
+      --bg-card: #242424;
+      --bg-card-hover: #2a2a2a;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666;
+      --accent-green: #4ade80;
+      --accent-amber: #fbbf24;
+      --accent-red: #f87171;
+      --accent-blue: #60a5fa;
+      --accent-purple: #a78bfa;
+      --accent-pink: #f472b6;
+      --border: #333;
+      --done: #22c55e;
+      --todo: #eab308;
+      --mum: #a78bfa;
+      --tobuy: #f97316;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1e3a2f 0%, #1a1a1a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header h1 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--accent-green);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header h1::before {
+      content: "🎄";
+    }
+
+    .mode-switcher {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--bg-card);
+      padding: 0.25rem;
+      border-radius: 8px;
+    }
+
+    .mode-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .mode-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .mode-btn.active {
+      background: var(--accent-green);
+      color: var(--bg-dark);
+    }
+
+    .time-setter {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .time-setter label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .time-setter input {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+    }
+
+    /* Main Content */
+    .main {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* LIZ MODE - Clean single column */
+    .liz-mode {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .liz-mode section {
+      margin-bottom: 3rem;
+    }
+
+    .liz-mode h2 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-green);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .liz-mode h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .liz-mode table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    .liz-mode th, .liz-mode td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .liz-mode th {
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .liz-mode ul {
+      list-style: none;
+    }
+
+    .liz-mode li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .liz-mode li::before {
+      content: "☐";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .liz-mode .task-done::before {
+      content: "✓";
+      color: var(--done);
+    }
+
+    /* SEB MODE - Multi-column dashboard */
+    .seb-mode {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .seb-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+    }
+
+    .seb-card h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-green);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .seb-card h2::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item-name {
+      font-weight: 500;
+    }
+
+    .status-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .status-done { background: rgba(34, 197, 94, 0.2); color: var(--done); }
+    .status-prepped { background: rgba(34, 197, 94, 0.2); color: var(--done); }
+    .status-mum { background: rgba(167, 139, 250, 0.2); color: var(--mum); }
+    .status-todo { background: rgba(234, 179, 8, 0.2); color: var(--todo); }
+    .status-tobuy { background: rgba(249, 115, 22, 0.2); color: var(--tobuy); }
+
+    .task-list {
+      list-style: none;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .task-checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .task-checkbox:hover {
+      border-color: var(--accent-green);
+    }
+
+    .task-checkbox.checked {
+      background: var(--accent-green);
+      border-color: var(--accent-green);
+    }
+
+    .task-checkbox.checked::after {
+      content: "✓";
+      color: var(--bg-dark);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .task-text.completed {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .task-important {
+      color: var(--accent-amber);
+      font-weight: 600;
+    }
+
+    .shopping-category {
+      margin-bottom: 1rem;
+    }
+
+    .shopping-category h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .shopping-item {
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .check-pantry {
+      font-size: 0.7rem;
+      color: var(--accent-amber);
+    }
+
+    /* TIMELINE MODE */
+    .timeline-mode {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-header h2 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.5rem;
+      color: var(--accent-green);
+    }
+
+    .timeline-container {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+
+    .timeline-column {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .timeline-column h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-visual {
+      position: relative;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      min-height: 600px;
+    }
+
+    .timeline-hours {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      border-right: 1px solid var(--border);
+    }
+
+    .timeline-hour {
+      position: absolute;
+      left: 0;
+      width: 60px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      transform: translateY(-50%);
+    }
+
+    .timeline-hour::after {
+      content: "";
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      width: 10px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .timeline-events {
+      position: absolute;
+      left: 70px;
+      right: 10px;
+      top: 0;
+      bottom: 0;
+    }
+
+    .timeline-event {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: rgba(74, 222, 128, 0.15);
+      border-left: 3px solid var(--accent-green);
+      border-radius: 0 6px 6px 0;
+      padding: 0.5rem 0.75rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .timeline-event:hover {
+      background: rgba(74, 222, 128, 0.25);
+    }
+
+    .timeline-event.eating {
+      background: rgba(248, 113, 113, 0.2);
+      border-left-color: var(--accent-red);
+    }
+
+    .timeline-event.rest {
+      background: rgba(96, 165, 250, 0.15);
+      border-left-color: var(--accent-blue);
+    }
+
+    .timeline-event.dessert {
+      background: rgba(244, 114, 182, 0.15);
+      border-left-color: var(--accent-pink);
+    }
+
+    .timeline-event-title {
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-event-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-event-tasks {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .gap-indicator {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(74, 222, 128, 0.05) 10px,
+        rgba(74, 222, 128, 0.05) 20px
+      );
+      border: 1px dashed var(--accent-green);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-green);
+      opacity: 0.7;
+    }
+
+    /* Print styles */
+    @media print {
+      .header { position: static; }
+      .mode-switcher, .time-setter { display: none; }
+      .seb-card { break-inside: avoid; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .seb-mode {
+        grid-template-columns: 1fr;
+      }
+      
+      .main {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1>Christmas Dinner 2025</h1>
+      
+      <div class="mode-switcher">
+        <button class="mode-btn active" data-mode="liz">Liz Mode</button>
+        <button class="mode-btn" data-mode="seb">Seb Mode</button>
+        <button class="mode-btn" data-mode="timeline">Timeline</button>
+      </div>
+      
+      <div class="time-setter">
+        <label for="eating-time">Eating at:</label>
+        <input type="time" id="eating-time" value="14:00">
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- LIZ MODE -->
+    <div id="liz-view" class="liz-mode">
+      <!-- Content injected by JS -->
+    </div>
+
+    <!-- SEB MODE -->
+    <div id="seb-view" class="seb-mode" style="display: none;">
+      <!-- Content injected by JS -->
+    </div>
+
+    <!-- TIMELINE MODE -->
+    <div id="timeline-view" class="timeline-mode" style="display: none;">
+      <!-- Content injected by JS -->
+    </div>
+  </main>
+
+  <script>
+    // Data loaded from JSON
+    let data = null;
+
+    // State
+    let currentMode = 'liz';
+    let eatingTime = '14:00';
+
+    // Load data from JSON file
+    async function loadData() {
+      try {
+        const response = await fetch('christmas-data.json');
+        data = await response.json();
+        console.log('Data loaded:', data);
+      } catch (error) {
+        console.error('Failed to fetch/parse JSON:', error);
+        document.querySelector('.main').innerHTML = `<p style="color: var(--accent-red); padding: 2rem;">Failed to load JSON: ${error.message}</p>`;
+        return;
+      }
+
+      try {
+        // Set eating time from data if available
+        if (data.meta && data.meta.eatingTime) {
+          eatingTime = data.meta.eatingTime;
+          document.getElementById('eating-time').value = eatingTime;
+        }
+
+        render();
+      } catch (error) {
+        console.error('Failed to render:', error);
+        document.querySelector('.main').innerHTML = `<p style="color: var(--accent-red); padding: 2rem;">Failed to render: ${error.message}</p>`;
+      }
+    }
+
+    // Helper to get timeline array (handles JSON structure difference)
+    function getTimeline() {
+      return data.christmasDay.timeline || data.christmasDay;
+    }
+
+    // Helper to get shopping categories (handles JSON structure difference)
+    function getShopping() {
+      return data.shopping.categories || data.shopping;
+    }
+
+    // Helper to get task text (handles both string and object tasks)
+    function getTaskText(task) {
+      return typeof task === 'string' ? task : task.task;
+    }
+
+    // Utility functions
+    function formatTime(minutes) {
+      const h = Math.floor(Math.abs(minutes) / 60);
+      const m = Math.abs(minutes) % 60;
+      return `${h}:${m.toString().padStart(2, '0')}`;
+    }
+
+    function addMinutesToTime(timeStr, minutes) {
+      const [h, m] = timeStr.split(':').map(Number);
+      const totalMins = h * 60 + m + minutes;
+      const newH = Math.floor(totalMins / 60) % 24;
+      const newM = totalMins % 60;
+      return `${newH.toString().padStart(2, '0')}:${newM.toString().padStart(2, '0')}`;
+    }
+
+    function getStatusClass(status) {
+      const map = {
+        done: 'status-done',
+        prepped: 'status-prepped',
+        mum: 'status-mum',
+        todo: 'status-todo',
+        tobuy: 'status-tobuy',
+        ordered: 'status-todo'
+      };
+      return map[status] || 'status-todo';
+    }
+
+    function getStatusLabel(status) {
+      const map = {
+        done: '✓ Done',
+        prepped: '✓ Prepped',
+        mum: 'Mum',
+        todo: 'To Do',
+        tobuy: 'To Buy',
+        ordered: 'Ordered'
+      };
+      return map[status] || status;
+    }
+
+    // Render functions
+    function renderLizMode() {
+      const container = document.getElementById('liz-view');
+      
+      container.innerHTML = `
+        <section>
+          <h2>The Team</h2>
+          <p><strong>Chef:</strong> ${data.team.chef}</p>
+          ${data.team.guests ? `<p><strong>Guests:</strong> ${data.team.guests.map(g => g.name).join(', ')}</p>` : ''}
+          <p><strong>Total:</strong> ${data.team.totalPeople} people</p>
+        </section>
+
+        <section>
+          <h2>The Menu</h2>
+          
+          <h3>Breakfast</h3>
+          <p>${data.menu.breakfast.description}</p>
+          
+          <h3>Amuse Bouche</h3>
+          <p>${data.menu.amuseBouche.name}</p>
+          
+          <h3>Mains</h3>
+          <table>
+            <tr><th>Item</th><th>Status</th><th>Notes</th></tr>
+            ${data.menu.mains.map(m => `
+              <tr>
+                <td>${m.name}</td>
+                <td><span class="${getStatusClass(m.status)}">${getStatusLabel(m.status)}</span></td>
+                <td>${m.notes || m.method || ''}</td>
+              </tr>
+            `).join('')}
+          </table>
+          
+          <h3>Sides</h3>
+          <table>
+            <tr><th>Item</th><th>Status</th><th>Notes</th></tr>
+            ${data.menu.sides.map(s => `
+              <tr>
+                <td>${s.name}</td>
+                <td><span class="status-badge ${getStatusClass(s.status)}">${getStatusLabel(s.status)}</span></td>
+                <td>${s.notes || ''}</td>
+              </tr>
+            `).join('')}
+          </table>
+          
+          <h3>Desserts</h3>
+          <table>
+            <tr><th>Item</th><th>Status</th><th>Notes</th></tr>
+            ${data.menu.desserts.map(d => `
+              <tr>
+                <td>${d.name}</td>
+                <td><span class="status-badge ${getStatusClass(d.status)}">${getStatusLabel(d.status)}</span></td>
+                <td>${d.notes || ''}</td>
+              </tr>
+            `).join('')}
+          </table>
+        </section>
+
+        <section>
+          <h2>Before Christmas Day</h2>
+          ${data.keyDates.map(kd => `
+            <h3>${kd.title}</h3>
+            <ul>
+              ${kd.tasks.map(t => `
+                <li class="${t.done ? 'task-done' : ''} ${t.important ? 'task-important' : ''}">${t.task}</li>
+              `).join('')}
+            </ul>
+          `).join('')}
+        </section>
+
+        <section>
+          <h2>Christmas Day Timeline</h2>
+          <p><em>Eating at: ${eatingTime}</em></p>
+          ${getTimeline().map(slot => `
+            <h3>${slot.tMinusLabel || slot.label} — ${slot.title} (${addMinutesToTime(eatingTime, slot.tMinus)})</h3>
+            <ul>
+              ${slot.tasks.map(t => `<li>${getTaskText(t)}</li>`).join('')}
+            </ul>
+          `).join('')}
+        </section>
+
+        <section>
+          <h2>Shopping List — ${data.shopping.store || 'Tesco'} ${data.shopping.orderDate || 'Monday 22nd'}</h2>
+          ${getShopping().map(cat => `
+            <h3>${cat.name}</h3>
+            <ul>
+              ${cat.items.map(i => `
+                <li>${i.item}${i.checkPantry ? ' <span class="check-pantry">(check pantry)</span>' : ''}</li>
+              `).join('')}
+            </ul>
+          `).join('')}
+        </section>
+      `;
+    }
+
+    function renderSebMode() {
+      const container = document.getElementById('seb-view');
+      
+      container.innerHTML = `
+        <div class="seb-card">
+          <h2>Menu Status</h2>
+          ${[...data.menu.mains, ...data.menu.sides, ...data.menu.desserts].map(item => `
+            <div class="menu-item">
+              <span class="menu-item-name">${item.name}</span>
+              <span class="status-badge ${getStatusClass(item.status)}">${getStatusLabel(item.status)}</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="seb-card">
+          <h2>Now → 24th Dec</h2>
+          ${data.keyDates.map(kd => `
+            <h4 style="color: var(--text-secondary); font-size: 0.8rem; margin: 1rem 0 0.5rem;">${kd.title}</h4>
+            <ul class="task-list">
+              ${kd.tasks.map((t, i) => `
+                <li class="task-item">
+                  <div class="task-checkbox ${t.done ? 'checked' : ''}" data-date="${kd.date}" data-task="${i}"></div>
+                  <span class="task-text ${t.done ? 'completed' : ''} ${t.important ? 'task-important' : ''}">${t.task}</span>
+                </li>
+              `).join('')}
+            </ul>
+          `).join('')}
+        </div>
+
+        <div class="seb-card">
+          <h2>Shopping — ${data.shopping.orderDate || 'Monday 22nd'}</h2>
+          ${getShopping().map(cat => `
+            <div class="shopping-category">
+              <h4>${cat.name}</h4>
+              ${cat.items.map(i => `
+                <div class="shopping-item">
+                  <span>☐ ${i.item}</span>
+                  ${i.checkPantry ? '<span class="check-pantry">check?</span>' : ''}
+                </div>
+              `).join('')}
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="seb-card">
+          <h2>Christmas Day — from ${addMinutesToTime(eatingTime, -360)}</h2>
+          ${getTimeline().map(slot => `
+            <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong>${slot.title}</strong>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-secondary);">
+                  ${addMinutesToTime(eatingTime, slot.tMinus)}
+                </span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                ${slot.tasks.slice(0, 3).map(t => getTaskText(t)).join(' • ')}${slot.tasks.length > 3 ? ' ...' : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="seb-card">
+          <h2>Equipment</h2>
+          ${data.equipment.map(e => `
+            <div class="menu-item">
+              <span>${e.item}</span>
+              <span style="color: var(--text-muted);">×${e.qty}</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="seb-card">
+          <h2>The Plate</h2>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">What goes on each plate:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            ${(data.plate?.mainPlate || ['Turkey', 'Ham', 'Roasties', 'Parsnips', 'Yorkshire', 'Pigs in blankets', 'Sprouts', 'Red cabbage', 'Carrots', 'Stuffing', 'Gravy']).map(item => `
+              <span style="background: var(--bg-dark); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">${item}</span>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      // Add click handlers for checkboxes
+      container.querySelectorAll('.task-checkbox').forEach(cb => {
+        cb.addEventListener('click', function() {
+          this.classList.toggle('checked');
+          this.nextElementSibling.classList.toggle('completed');
+        });
+      });
+    }
+
+    function renderTimelineMode() {
+      const container = document.getElementById('timeline-view');
+      
+      // Calculate pixel positions (1 hour = 80px)
+      const hourHeight = 80;
+      const startHour = parseInt(eatingTime.split(':')[0]) - 6;
+      const totalHours = 9; // 6 hours before to 2 hours after
+      
+      let hoursHtml = '';
+      for (let i = 0; i <= totalHours; i++) {
+        const hour = (startHour + i) % 24;
+        const displayHour = hour.toString().padStart(2, '0') + ':00';
+        hoursHtml += `<div class="timeline-hour" style="top: ${i * hourHeight}px;">${displayHour}</div>`;
+      }
+
+      let eventsHtml = '';
+      let lastEndMins = null;
+
+      getTimeline().forEach(slot => {
+        const slotStartMins = (parseInt(eatingTime.split(':')[0]) * 60 + parseInt(eatingTime.split(':')[1])) + slot.tMinus;
+        const slotEndMins = slotStartMins + slot.duration;
+        
+        // Check for gap
+        if (lastEndMins !== null && slotStartMins > lastEndMins) {
+          const gapStart = (lastEndMins - startHour * 60) / 60 * hourHeight;
+          const gapHeight = (slotStartMins - lastEndMins) / 60 * hourHeight;
+          eventsHtml += `
+            <div class="gap-indicator" style="top: ${gapStart}px; height: ${gapHeight}px;">
+              🎁 ${Math.round((slotStartMins - lastEndMins))} mins free
+            </div>
+          `;
+        }
+        
+        const topPos = (slotStartMins - startHour * 60) / 60 * hourHeight;
+        const height = slot.duration / 60 * hourHeight;
+        const typeClass = slot.type || '';
+        
+        eventsHtml += `
+          <div class="timeline-event ${typeClass}" style="top: ${topPos}px; height: ${Math.max(height, 40)}px;">
+            <div class="timeline-event-title">${slot.title}</div>
+            <div class="timeline-event-time">${addMinutesToTime(eatingTime, slot.tMinus)} - ${addMinutesToTime(eatingTime, slot.tMinus + slot.duration)}</div>
+            ${height > 60 ? `<div class="timeline-event-tasks">${slot.tasks.slice(0, 3).map(t => getTaskText(t)).join(' • ')}</div>` : ''}
+          </div>
+        `;
+        
+        lastEndMins = slotEndMins;
+      });
+
+      container.innerHTML = `
+        <div class="timeline-header">
+          <h2>Christmas Day Timeline</h2>
+          <p style="color: var(--text-secondary);">Eating at ${eatingTime} • Green = gaps for presents! 🎁</p>
+        </div>
+        
+        <div class="timeline-column">
+          <div class="timeline-visual" style="height: ${totalHours * hourHeight + 40}px;">
+            <div class="timeline-hours">
+              ${hoursHtml}
+            </div>
+            <div class="timeline-events">
+              ${eventsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function render() {
+      if (!data) return; // Wait for data to load
+
+      document.getElementById('liz-view').style.display = currentMode === 'liz' ? 'block' : 'none';
+      document.getElementById('seb-view').style.display = currentMode === 'seb' ? 'grid' : 'none';
+      document.getElementById('timeline-view').style.display = currentMode === 'timeline' ? 'flex' : 'none';
+
+      if (currentMode === 'liz') renderLizMode();
+      if (currentMode === 'seb') renderSebMode();
+      if (currentMode === 'timeline') renderTimelineMode();
+    }
+
+    // Event listeners
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentMode = this.dataset.mode;
+        render();
+      });
+    });
+
+    document.getElementById('eating-time').addEventListener('change', function() {
+      eatingTime = this.value;
+      render();
+    });
+
+    // Load data and render
+    loadData();
+  </script>
+</body>
+</html>
