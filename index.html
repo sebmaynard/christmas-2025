@@ -131,7 +131,7 @@
     .main {
       max-width: 1800px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 1rem;
     }
 
 
@@ -202,11 +202,11 @@
       color: var(--done);
     }
 
-    /* SEB MODE - Multi-column dashboard */
+    /* SEB MODE - Multi-column dashboard (compact) */
     .seb-mode {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 0.75rem;
     }
 
     @media (min-width: 1200px) {
@@ -217,28 +217,29 @@
 
     .seb-card {
       background: var(--bg-card);
-      border-radius: 12px;
-      padding: 1.25rem;
+      border-radius: 8px;
+      padding: 0.75rem;
       border: 1px solid var(--border);
+      font-size: 0.8rem;
     }
 
     .seb-card h2 {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent-green);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.35rem;
     }
 
     .seb-card h2::before {
       content: "";
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: var(--accent-green);
       border-radius: 50%;
     }
@@ -247,7 +248,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 0;
+      padding: 0.2rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -257,13 +258,14 @@
 
     .menu-item-name {
       font-weight: 500;
+      font-size: 0.8rem;
     }
 
     .status-badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
+      font-size: 0.6rem;
+      padding: 0.15rem 0.35rem;
+      border-radius: 3px;
       text-transform: uppercase;
       font-weight: 500;
     }
@@ -281,18 +283,19 @@
     .task-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.5rem 0;
-      font-size: 0.9rem;
+      gap: 0.4rem;
+      padding: 0.15rem 0;
+      font-size: 0.75rem;
+      line-height: 1.3;
     }
 
     .task-checkbox {
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--border);
-      border-radius: 4px;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 3px;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 1px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -312,7 +315,7 @@
     .task-checkbox.checked::after {
       content: "✓";
       color: var(--bg-dark);
-      font-size: 12px;
+      font-size: 9px;
       font-weight: bold;
     }
 
@@ -327,26 +330,26 @@
     }
 
     .shopping-category {
-      margin-bottom: 1rem;
-    }
-
-    .shopping-category h4 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-secondary);
       margin-bottom: 0.5rem;
     }
 
+    .shopping-category h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.2rem;
+    }
+
     .shopping-item {
-      font-size: 0.85rem;
-      padding: 0.25rem 0;
+      font-size: 0.75rem;
+      padding: 0.1rem 0;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.3rem;
     }
 
     .check-pantry {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       color: var(--accent-amber);
     }
 
@@ -903,7 +906,7 @@
         <div class="seb-card">
           <h2>Now → 24th Dec</h2>
           ${data.keyDates.map(kd => `
-            <h4 style="color: var(--text-secondary); font-size: 0.8rem; margin: 1rem 0 0.5rem;">${kd.title}</h4>
+            <h4 style="color: var(--text-secondary); font-size: 0.7rem; margin: 0.5rem 0 0.25rem;">${kd.title}</h4>
             <ul class="task-list">
               ${kd.tasks.map((t, i) => `
                 <li class="task-item">
@@ -932,13 +935,13 @@
 
         <div class="seb-card">
           <h2>Christmas Day</h2>
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.7rem;">
             <tbody>
             ${getTimeline().map(slot => `
               <tr>
-                <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-secondary); padding: 0.3rem 0.5rem 0.3rem 0; vertical-align: top; white-space: nowrap;">${addMinutesToTime(eatingTime, slot.tMinus)}</td>
-                <td style="padding: 0.3rem 0.5rem 0.3rem 0; vertical-align: top; white-space: nowrap; font-weight: 600;">${slot.title}</td>
-                <td style="padding: 0.3rem 0; vertical-align: top; color: var(--text-secondary); font-size: 0.75rem;">${slot.tasks.map(t => getTaskText(t)).join('<br>')}</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-secondary); padding: 0.15rem 0.3rem 0.15rem 0; vertical-align: top; white-space: nowrap;">${addMinutesToTime(eatingTime, slot.tMinus)}</td>
+                <td style="padding: 0.15rem 0.3rem 0.15rem 0; vertical-align: top; white-space: nowrap; font-weight: 600; font-size: 0.7rem;">${slot.title}</td>
+                <td style="padding: 0.15rem 0; vertical-align: top; color: var(--text-secondary); font-size: 0.65rem;">${slot.tasks.map(t => getTaskText(t)).join('<br>')}</td>
               </tr>
             `).join('')}
             </tbody>
@@ -957,10 +960,10 @@
 
         <div class="seb-card">
           <h2>The Plate</h2>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">What goes on each plate:</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <p style="font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 0.3rem;">What goes on each plate:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.25rem;">
             ${(data.plate?.mainPlate || ['Turkey', 'Ham', 'Roasties', 'Parsnips', 'Yorkshire', 'Pigs in blankets', 'Sprouts', 'Red cabbage', 'Carrots', 'Stuffing', 'Gravy']).map(item => `
-              <span style="background: var(--bg-dark); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">${item}</span>
+              <span style="background: var(--bg-dark); padding: 0.15rem 0.35rem; border-radius: 3px; font-size: 0.7rem;">${item}</span>
             `).join('')}
           </div>
         </div>
