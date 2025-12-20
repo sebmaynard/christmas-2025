@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Christmas Dinner 2025",
-    "lastUpdated": "2024-12-19T23:30:00Z",
+    "lastUpdated": "2025-12-19T23:30:00Z",
     "eatingTime": null,
     "eatingTimeNote": "Set this to calculate actual times from T-minus format"
   },
@@ -131,6 +131,7 @@
         "tMinusLabel": "T-6:00",
         "title": "Turkey to room temp",
         "duration": 60,
+        "note": "Adjust start time based on actual turkey weight - this assumes ~4.5kg",
         "tasks": [
           { "task": "Turkey out of fridge (needs 1hr to come to room temp)", "done": false }
         ]
@@ -141,6 +142,7 @@
         "title": "Turkey roasting",
         "duration": 210,
         "type": "oven1",
+        "note": "⚠️ RECALCULATE once weighed! ~45 mins per kg at 180°C. Current estimate assumes ~4.5kg bird.",
         "tasks": [
           { "task": "Turkey into OVEN 1 at 180°C", "done": false },
           { "task": "Baste every 45 mins", "done": false }
@@ -170,13 +172,24 @@
       {
         "tMinus": -75,
         "tMinusLabel": "T-1:15",
-        "title": "Roasties & parsnips",
+        "title": "Roast potatoes",
         "duration": 60,
         "type": "oven1",
         "tasks": [
           { "task": "Goose fat in tray, get smoking hot", "done": false },
-          { "task": "Potatoes & parsnips in, season well", "done": false },
+          { "task": "Potatoes in, season well", "done": false },
           { "task": "Turn halfway", "done": false }
+        ]
+      },
+      {
+        "tMinus": -55,
+        "tMinusLabel": "T-0:55",
+        "title": "Parsnips",
+        "duration": 40,
+        "type": "oven1",
+        "tasks": [
+          { "task": "Parsnips into oven with potatoes (separate tray)", "done": false },
+          { "task": "Drizzle with maple syrup for last 10 mins", "done": false }
         ]
       },
       {
@@ -273,13 +286,14 @@
         ]
       },
       {
-        "tMinus": -15,
-        "tMinusLabel": "T-0:15",
-        "title": "Dates in bacon",
+        "tMinus": -180,
+        "tMinusLabel": "T-3:00",
+        "title": "Dates in bacon (mid-morning snack)",
         "duration": 10,
         "type": "airfryer",
         "tasks": [
-          { "task": "Dates in bacon into air fryer", "done": false }
+          { "task": "Dates in bacon into air fryer", "done": false },
+          { "task": "Serve as mid-morning nibble with drinks", "done": false }
         ]
       },
       {
