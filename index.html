@@ -856,13 +856,18 @@
 
         <section>
           <h2>Christmas Day Timeline</h2>
-          <p><em>Eating at: ${eatingTime}</em></p>
-          ${getTimeline().map(slot => `
-            <h3>${slot.tMinusLabel || slot.label} — ${slot.title} (${addMinutesToTime(eatingTime, slot.tMinus)})</h3>
-            <ul>
-              ${slot.tasks.map(t => `<li>${getTaskText(t)}</li>`).join('')}
-            </ul>
-          `).join('')}
+          <p style="margin-bottom: 1rem;"><em>Eating at: ${eatingTime}</em></p>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tbody>
+            ${getTimeline().map(slot => `
+              <tr>
+                <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-secondary); padding: 0.4rem 1rem 0.4rem 0; vertical-align: top; white-space: nowrap; width: 50px;">${addMinutesToTime(eatingTime, slot.tMinus)}</td>
+                <td style="padding: 0.4rem 1rem 0.4rem 0; vertical-align: top; white-space: nowrap; font-weight: 600; width: 150px;">${slot.title}</td>
+                <td style="padding: 0.4rem 0; vertical-align: top; color: var(--text-secondary); font-size: 0.9rem;">${slot.tasks.map(t => getTaskText(t)).join('<br>')}</td>
+              </tr>
+            `).join('')}
+            </tbody>
+          </table>
         </section>
 
         <section>
@@ -924,20 +929,18 @@
         </div>
 
         <div class="seb-card">
-          <h2>Christmas Day — from ${addMinutesToTime(eatingTime, -360)}</h2>
-          ${getTimeline().map(slot => `
-            <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <strong>${slot.title}</strong>
-                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-secondary);">
-                  ${addMinutesToTime(eatingTime, slot.tMinus)}
-                </span>
-              </div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
-                ${slot.tasks.slice(0, 3).map(t => getTaskText(t)).join(' • ')}${slot.tasks.length > 3 ? ' ...' : ''}
-              </div>
-            </div>
-          `).join('')}
+          <h2>Christmas Day</h2>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+            <tbody>
+            ${getTimeline().map(slot => `
+              <tr>
+                <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-secondary); padding: 0.3rem 0.5rem 0.3rem 0; vertical-align: top; white-space: nowrap;">${addMinutesToTime(eatingTime, slot.tMinus)}</td>
+                <td style="padding: 0.3rem 0.5rem 0.3rem 0; vertical-align: top; white-space: nowrap; font-weight: 600;">${slot.title}</td>
+                <td style="padding: 0.3rem 0; vertical-align: top; color: var(--text-secondary); font-size: 0.75rem;">${slot.tasks.map(t => getTaskText(t)).join('<br>')}</td>
+              </tr>
+            `).join('')}
+            </tbody>
+          </table>
         </div>
 
         <div class="seb-card">
