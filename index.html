@@ -134,6 +134,7 @@
       padding: 2rem;
     }
 
+
     /* LIZ MODE - Clean single column */
     .liz-mode {
       max-width: 800px;
@@ -348,6 +349,10 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding: 0 1rem;
+      box-sizing: border-box;
     }
 
     .timeline-header {
@@ -373,7 +378,6 @@
     .timeline-column {
       flex-shrink: 0;
       width: 100%;
-      max-width: 600px;
     }
 
     .timeline-column h3 {
@@ -431,15 +435,14 @@
 
     .timeline-event {
       position: absolute;
-      left: 0;
-      right: 0;
       background: rgba(74, 222, 128, 0.15);
       border-left: 3px solid var(--accent-green);
       border-radius: 0 6px 6px 0;
-      padding: 0.5rem 0.75rem;
+      padding: 0.5rem 0.5rem;
       overflow: hidden;
       cursor: pointer;
       transition: all 0.2s;
+      box-sizing: border-box;
     }
 
     .timeline-event:hover {
@@ -451,32 +454,49 @@
       border-left-color: var(--accent-red);
     }
 
-    .timeline-event.rest {
-      background: rgba(96, 165, 250, 0.15);
-      border-left-color: var(--accent-blue);
-    }
-
     .timeline-event.dessert {
       background: rgba(244, 114, 182, 0.15);
       border-left-color: var(--accent-pink);
     }
 
+    .timeline-event.oven1 {
+      background: rgba(251, 191, 36, 0.2);
+      border-left-color: var(--accent-amber);
+    }
+
+    .timeline-event.oven2 {
+      background: rgba(249, 115, 22, 0.2);
+      border-left-color: #f97316;
+    }
+
+    .timeline-event.hob {
+      background: rgba(96, 165, 250, 0.15);
+      border-left-color: var(--accent-blue);
+    }
+
+    .timeline-event.airfryer {
+      background: rgba(167, 139, 250, 0.15);
+      border-left-color: var(--accent-purple);
+    }
+
     .timeline-event-title {
       font-weight: 600;
-      font-size: 0.8rem;
-      margin-bottom: 0.25rem;
+      font-size: 0.7rem;
+      line-height: 1.2;
+      margin-bottom: 0.15rem;
     }
 
     .timeline-event-time {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       color: var(--text-secondary);
     }
 
     .timeline-event-tasks {
-      font-size: 0.75rem;
+      font-size: 0.6rem;
       color: var(--text-secondary);
-      margin-top: 0.25rem;
+      margin-top: 0.15rem;
+      line-height: 1.2;
     }
 
     .gap-indicator {
@@ -501,11 +521,127 @@
       opacity: 0.7;
     }
 
-    /* Print styles */
+    /* Print styles - Liz mode (portrait, single column) */
     @media print {
-      .header { position: static; }
+      .header {
+        position: static;
+        background: white;
+        border-bottom: 2px solid #333;
+      }
+      .header h1 { color: #1a5a1a; }
       .mode-switcher, .time-setter { display: none; }
-      .seb-card { break-inside: avoid; }
+
+      body {
+        background: white;
+        color: black;
+      }
+
+      .main {
+        padding: 0;
+        max-width: none;
+      }
+    }
+
+    /* Liz mode print - portrait, single column */
+    @media print {
+      .liz-mode {
+        max-width: none;
+      }
+
+      .liz-mode section {
+        break-inside: avoid;
+      }
+
+      .liz-mode h2 {
+        color: #1a5a1a;
+        border-bottom-color: #333;
+      }
+
+      .liz-mode table {
+        border: 1px solid #ccc;
+      }
+
+      .liz-mode th, .liz-mode td {
+        border-bottom: 1px solid #ccc;
+      }
+
+      .status-badge {
+        border: 1px solid currentColor;
+      }
+    }
+
+    /* Seb mode print - landscape, 3 columns */
+    @media print {
+      .seb-mode {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem;
+      }
+
+      .seb-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        background: white;
+      }
+
+      .seb-card h2 {
+        color: #1a5a1a;
+      }
+    }
+
+    /* Timeline mode print - landscape */
+    @media print {
+      .timeline-mode {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+      }
+
+      .timeline-visual {
+        border: 1px solid #ccc;
+        background: white;
+      }
+
+      .timeline-event {
+        border: 1px solid currentColor;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .timeline-header h2 {
+        color: #1a5a1a;
+      }
+    }
+
+    /* Page orientation based on which view is visible */
+    @page {
+      margin: 1cm;
+    }
+
+    @page liz {
+      size: portrait;
+    }
+
+    @page seb {
+      size: landscape;
+    }
+
+    @page timeline {
+      size: landscape;
+    }
+
+    @media print {
+      .liz-mode {
+        page: liz;
+      }
+
+      .seb-mode {
+        page: seb;
+      }
+
+      .timeline-mode {
+        page: timeline;
+      }
     }
 
     /* Responsive */
@@ -836,12 +972,13 @@
 
     function renderTimelineMode() {
       const container = document.getElementById('timeline-view');
-      
+      const timeline = getTimeline();
+
       // Calculate pixel positions (1 hour = 80px)
       const hourHeight = 80;
       const startHour = parseInt(eatingTime.split(':')[0]) - 6;
       const totalHours = 9; // 6 hours before to 2 hours after
-      
+
       let hoursHtml = '';
       for (let i = 0; i <= totalHours; i++) {
         const hour = (startHour + i) % 24;
@@ -849,37 +986,52 @@
         hoursHtml += `<div class="timeline-hour" style="top: ${i * hourHeight}px;">${displayHour}</div>`;
       }
 
-      let eventsHtml = '';
-      let lastEndMins = null;
+      // Calculate start/end times for each event and assign columns for overlaps
+      const events = timeline.map(slot => {
+        const startMins = (parseInt(eatingTime.split(':')[0]) * 60 + parseInt(eatingTime.split(':')[1])) + slot.tMinus;
+        return {
+          ...slot,
+          startMins,
+          endMins: startMins + slot.duration,
+          column: 0
+        };
+      });
 
-      getTimeline().forEach(slot => {
-        const slotStartMins = (parseInt(eatingTime.split(':')[0]) * 60 + parseInt(eatingTime.split(':')[1])) + slot.tMinus;
-        const slotEndMins = slotStartMins + slot.duration;
-        
-        // Check for gap
-        if (lastEndMins !== null && slotStartMins > lastEndMins) {
-          const gapStart = (lastEndMins - startHour * 60) / 60 * hourHeight;
-          const gapHeight = (slotStartMins - lastEndMins) / 60 * hourHeight;
-          eventsHtml += `
-            <div class="gap-indicator" style="top: ${gapStart}px; height: ${gapHeight}px;">
-              🎁 ${Math.round((slotStartMins - lastEndMins))} mins free
-            </div>
-          `;
+      // Sort by start time
+      events.sort((a, b) => a.startMins - b.startMins);
+
+      // Assign columns to avoid overlaps
+      events.forEach((event, i) => {
+        // Find which columns are occupied at this event's start time
+        const occupiedColumns = new Set();
+        for (let j = 0; j < i; j++) {
+          if (events[j].endMins > event.startMins) {
+            occupiedColumns.add(events[j].column);
+          }
         }
-        
-        const topPos = (slotStartMins - startHour * 60) / 60 * hourHeight;
+        // Find first free column
+        let col = 0;
+        while (occupiedColumns.has(col)) col++;
+        event.column = col;
+      });
+
+      const maxColumns = Math.max(...events.map(e => e.column)) + 1;
+      const columnWidth = 100 / maxColumns;
+
+      let eventsHtml = '';
+      events.forEach(slot => {
+        const topPos = (slot.startMins - startHour * 60) / 60 * hourHeight;
         const height = slot.duration / 60 * hourHeight;
         const typeClass = slot.type || '';
-        
+        const leftPos = slot.column * columnWidth;
+
         eventsHtml += `
-          <div class="timeline-event ${typeClass}" style="top: ${topPos}px; height: ${Math.max(height, 40)}px;">
+          <div class="timeline-event ${typeClass}" style="top: ${topPos}px; height: ${Math.max(height, 40)}px; left: ${leftPos}%; width: ${columnWidth}%;">
             <div class="timeline-event-title">${slot.title}</div>
             <div class="timeline-event-time">${addMinutesToTime(eatingTime, slot.tMinus)} - ${addMinutesToTime(eatingTime, slot.tMinus + slot.duration)}</div>
             ${height > 60 ? `<div class="timeline-event-tasks">${slot.tasks.slice(0, 3).map(t => getTaskText(t)).join(' • ')}</div>` : ''}
           </div>
         `;
-        
-        lastEndMins = slotEndMins;
       });
 
       container.innerHTML = `
