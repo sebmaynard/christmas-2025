@@ -205,8 +205,14 @@
     /* SEB MODE - Multi-column dashboard */
     .seb-mode {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
+    }
+
+    @media (min-width: 1200px) {
+      .seb-mode {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .seb-card {
@@ -650,11 +656,7 @@
         flex-direction: column;
         align-items: flex-start;
       }
-      
-      .seb-mode {
-        grid-template-columns: 1fr;
-      }
-      
+
       .main {
         padding: 1rem;
       }
@@ -667,8 +669,8 @@
       <h1>Christmas Dinner 2025</h1>
       
       <div class="mode-switcher">
-        <button class="mode-btn active" data-mode="liz">Liz Mode</button>
-        <button class="mode-btn" data-mode="seb">Seb Mode</button>
+        <button class="mode-btn active" data-mode="seb">Seb Mode</button>
+        <button class="mode-btn" data-mode="liz">Liz Mode</button>
         <button class="mode-btn" data-mode="timeline">Timeline</button>
       </div>
       
@@ -680,13 +682,13 @@
   </header>
 
   <main class="main">
-    <!-- LIZ MODE -->
-    <div id="liz-view" class="liz-mode">
+    <!-- SEB MODE -->
+    <div id="seb-view" class="seb-mode">
       <!-- Content injected by JS -->
     </div>
 
-    <!-- SEB MODE -->
-    <div id="seb-view" class="seb-mode" style="display: none;">
+    <!-- LIZ MODE -->
+    <div id="liz-view" class="liz-mode" style="display: none;">
       <!-- Content injected by JS -->
     </div>
 
@@ -701,7 +703,7 @@
     let data = null;
 
     // State
-    let currentMode = 'liz';
+    let currentMode = 'seb';
     let eatingTime = '14:00';
 
     // Load data from JSON file
