@@ -1026,10 +1026,9 @@
         const leftPos = slot.column * columnWidth;
 
         eventsHtml += `
-          <div class="timeline-event ${typeClass}" style="top: ${topPos}px; height: ${Math.max(height, 40)}px; left: ${leftPos}%; width: ${columnWidth}%;">
+          <div class="timeline-event ${typeClass}" style="top: ${topPos}px; height: ${height}px; left: ${leftPos}%; width: ${columnWidth}%;">
             <div class="timeline-event-title">${slot.title}</div>
-            <div class="timeline-event-time">${addMinutesToTime(eatingTime, slot.tMinus)} - ${addMinutesToTime(eatingTime, slot.tMinus + slot.duration)}</div>
-            ${height > 60 ? `<div class="timeline-event-tasks">${slot.tasks.slice(0, 3).map(t => getTaskText(t)).join(' • ')}</div>` : ''}
+            ${height > 20 ? `<div class="timeline-event-time">${addMinutesToTime(eatingTime, slot.tMinus)}</div>` : ''}
           </div>
         `;
       });
