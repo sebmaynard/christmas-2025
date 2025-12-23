@@ -118,10 +118,10 @@
         { "task": "Get the fancy cutlery out", "done": true },
         { "task": "Get the fancy crockery out", "done": false },
         { "task": "Get the serving dishes and serving implements out", "done": false },
-        { "task": "Sheets on the guest bed", "done": false },
-        { "task": "Get the presents out and under the tree", "done": false },
+        { "task": "Sheets on the guest bed", "done": true },
+        { "task": "Get the presents out and under the tree", "done": true },
         { "task": "Hang Elliott's curtains", "done": true },
-        { "task": "Put tools away", "done": false },
+        { "task": "Put tools away", "done": true },
         { "task": "Clean the footstool", "done": false },
 { "task": "Get the stocking presents out and hide them somewhere... in individual bags", "done": false }
       ]
