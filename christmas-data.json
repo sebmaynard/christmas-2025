@@ -121,7 +121,8 @@
         { "task": "Sheets on the guest bed", "done": false },
         { "task": "Get the presents out and under the tree", "done": false },
         { "task": "Hang Elliott's curtains", "done": false },
-        { "task": "Put tools away", "done": false }
+        { "task": "Put tools away", "done": false },
+        { "task": "Clean the footstool", "done": false }
       ]
     },
     {
