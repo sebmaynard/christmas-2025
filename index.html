@@ -653,6 +653,145 @@
       }
     }
 
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      max-width: 700px;
+      width: 100%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      color: var(--accent-green);
+      margin: 0;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .roadmap-output {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre;
+      overflow-x: auto;
+      color: var(--text-primary);
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      padding: 0.65rem 1.25rem;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent-green);
+      color: var(--bg-dark);
+    }
+
+    .btn-primary:hover {
+      background: #22c55e;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+    }
+
+    .export-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+      margin-left: auto;
+    }
+
+    .export-btn:hover {
+      background: var(--accent-green);
+      color: var(--bg-dark);
+      border-color: var(--accent-green);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .header-content {
@@ -662,6 +801,14 @@
 
       .main {
         padding: 1rem;
+      }
+
+      .modal-content {
+        max-height: 90vh;
+      }
+
+      .roadmap-output {
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -700,6 +847,26 @@
       <!-- Content injected by JS -->
     </div>
   </main>
+
+  <!-- Roadmap Export Modal -->
+  <div id="roadmap-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Roadmap Format</h3>
+        <button class="modal-close" id="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+          Copy this format for your roadmap visualizer:
+        </p>
+        <div class="roadmap-output" id="roadmap-output"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-cancel">Close</button>
+        <button class="btn btn-primary" id="copy-roadmap">Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Data loaded from JSON
@@ -748,6 +915,70 @@
     // Helper to get task text (handles both string and object tasks)
     function getTaskText(task) {
       return typeof task === 'string' ? task : task.task;
+    }
+
+    // Generate roadmap format (adapted from generate-roadmap-timeline.js)
+    function generateRoadmapFormat() {
+      const timeline = getTimeline();
+      const eatingDateTime = new Date(`2025-12-25T${eatingTime}:00`);
+
+      // Group items by type (swimlane)
+      const swimlanes = {
+        'OVEN 1': [],
+        'OVEN 2': [],
+        'HOB': [],
+        'AIR FRYER': [],
+        'OTHER': []
+      };
+
+      // Convert T-minus to actual time and group by type
+      timeline.forEach(item => {
+        const startTime = new Date(eatingDateTime.getTime() + item.tMinus * 60000);
+        const endTime = new Date(eatingDateTime.getTime() + (item.tMinusEnd !== undefined ? item.tMinusEnd : (item.tMinus + item.duration)) * 60000);
+
+        const formatTime = (date) => {
+          const hours = date.getHours();
+          const minutes = date.getMinutes();
+          const ampm = hours >= 12 ? 'pm' : 'am';
+          const hour12 = hours % 12 || 12;
+          return minutes === 0 ? `${hour12}${ampm}` : `${hour12}:${minutes.toString().padStart(2, '0')}${ampm}`;
+        };
+
+        const timeRange = `${formatTime(startTime)} to ${formatTime(endTime)}`;
+
+        let swimlane = 'OTHER';
+        if (item.type) {
+          const type = item.type.toUpperCase();
+          if (type === 'OVEN1') swimlane = 'OVEN 1';
+          else if (type === 'OVEN2') swimlane = 'OVEN 2';
+          else if (type === 'HOB') swimlane = 'HOB';
+          else if (type === 'AIRFRYER') swimlane = 'AIR FRYER';
+        }
+
+        swimlanes[swimlane].push({
+          name: item.name || item.title,
+          time: timeRange,
+          startTime
+        });
+      });
+
+      // Sort items within each swimlane by start time
+      Object.keys(swimlanes).forEach(key => {
+        swimlanes[key].sort((a, b) => a.startTime - b.startTime);
+      });
+
+      // Generate human roadmap format output
+      let output = 'CHRISTMAS DINNER\n';
+      Object.entries(swimlanes).forEach(([swimlane, items]) => {
+        if (items.length > 0) {
+          output += `    ${swimlane}\n`;
+          items.forEach(item => {
+            output += `        ${item.name}  ${item.time}\n`;
+          });
+        }
+      });
+
+      return output;
     }
 
     // Utility functions
@@ -919,7 +1150,10 @@
         </div>
 
         <div class="seb-card">
-          <h2>Christmas Day</h2>
+          <h2 style="display: flex; align-items: center; width: 100%;">
+            <span style="flex: 1;">Christmas Day</span>
+            <button class="export-btn" id="export-roadmap">📋 Export Roadmap</button>
+          </h2>
           <table style="width: 100%; border-collapse: collapse; font-size: 0.7rem;">
             <tbody>
             ${getTimeline().map(slot => `
@@ -976,6 +1210,16 @@
           this.nextElementSibling.classList.toggle('completed');
         });
       });
+
+      // Add click handler for export roadmap button
+      const exportBtn = document.getElementById('export-roadmap');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', function() {
+          const roadmapText = generateRoadmapFormat();
+          document.getElementById('roadmap-output').textContent = roadmapText;
+          document.getElementById('roadmap-modal').style.display = 'flex';
+        });
+      }
     }
 
     function renderTimelineMode() {
@@ -1085,6 +1329,59 @@
     document.getElementById('eating-time').addEventListener('change', function() {
       eatingTime = this.value;
       render();
+    });
+
+    // Modal event handlers
+    const modal = document.getElementById('roadmap-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const cancelBtn = document.getElementById('modal-cancel');
+    const copyBtn = document.getElementById('copy-roadmap');
+
+    // Close modal when clicking X or Cancel
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside the content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Copy to clipboard
+    copyBtn.addEventListener('click', async () => {
+      const roadmapText = document.getElementById('roadmap-output').textContent;
+      try {
+        await navigator.clipboard.writeText(roadmapText);
+        // Visual feedback
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = '✓ Copied!';
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = roadmapText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = '✓ Copied!';
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+        }, 2000);
+      }
     });
 
     // Load data and render
