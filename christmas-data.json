@@ -36,7 +36,7 @@
         "name": "Turkey",
         "size": "~healthy baby size",
         "source": "Butchers",
-        "status": "ordered",
+        "status": "done",
         "collectDate": "23rd Dec",
         "weightKg": null,
         "notes": "WEIGH ON COLLECTION"
@@ -45,7 +45,7 @@
         "name": "Ham",
         "size": "Big",
         "source": "Butchers",
-        "status": "ordered",
+        "status": "done",
         "collectDate": "23rd Dec",
         "raw": true,
         "method": "Boil in Le Creuset with herbs, cloves, cider. Then glaze with maple syrup and roast."
@@ -58,17 +58,18 @@
       { "name": "Cranberry sauce", "status": "mum", "notes": "Mum bringing" },
       { "name": "Bread sauce", "status": "mum", "notes": "Mum bringing" },
       { "name": "Stuffing ring", "status": "mum", "notes": "Mum bringing" },
-      { "name": "Extra stuffing", "status": "todo", "notes": "Sausagemeat, sage & onion, chestnuts, herbs" },
-      { "name": "Yorkshire puddings (GF)", "status": "todo", "notes": "Make and freeze ahead" },
+      { "name": "Extra stuffing", "status": "prepped", "notes": "Bought, in fridge - cook on the day" },
+      { "name": "Yorkshire puddings (GF)", "status": "done", "notes": "Prepped, cooked and frozen - ready to defrost on Christmas day" },
       { "name": "Roast potatoes", "status": "todo", "notes": "Goose fat - 2 jars ready" },
       { "name": "Parsnips", "status": "todo", "notes": "Peel Xmas Eve, keep in water. Maple glaze." },
       { "name": "Carrots", "status": "todo", "notes": "Steam, then toss in butter & honey" },
-      { "name": "Gravy", "status": "tobuy", "notes": "Tesco Finest fresh turkey gravy + turkey juices" }
+      { "name": "Gravy", "status": "done", "notes": "Tesco Finest fresh turkey gravy + turkey juices" }
     ],
     "desserts": [
       { "name": "Christmas cake", "status": "done", "notes": "Liz made. For later when too full to move." },
       { "name": "Christmas pudding", "status": "mum", "notes": "Mum bringing" },
-      { "name": "Trifle", "status": "todo", "notes": "Make Christmas Eve, top with cream Xmas morning" }
+      { "name": "Trifle", "status": "cancelled", "notes": "Cancelled - Liz making roullade instead (on her plan)" },
+      { "name": "Roullade", "status": "liz", "notes": "Liz making roullade" }
     ]
   },
   "plate": {
@@ -96,28 +97,41 @@
       "date": "now-22nd",
       "title": "Now → 22nd Dec",
       "tasks": [
-        { "task": "Make Yorkshire puddings and freeze", "done": false },
-        { "task": "Make sausage & chestnut stuffing and freeze", "done": false },
-        { "task": "Prep dates wrapped in bacon (freeze on tray)", "done": false },
-        { "task": "Final Tesco order: Monday 22nd", "done": false }
+        { "task": "Make Yorkshire puddings and freeze", "done": true },
+        { "task": "Make sausage & chestnut stuffing and freeze", "done": true },
+        { "task": "Final Tesco order: Monday 22nd", "done": true }
       ]
     },
     {
       "date": "23rd",
       "title": "23rd Dec",
       "tasks": [
-        { "task": "Collect turkey and ham from butchers", "done": false },
-        { "task": "WEIGH THE TURKEY - update the plan!", "done": false, "important": true }
+        { "task": "Collect turkey, ham and bacon from butchers", "done": true },
+        { "task": "WEIGH THE TURKEY - update the plan!", "done": false, "important": true },
+        { "task": "Clean ovens, shelves and trays (white ash)", "done": false },
+        { "task": "Clear out wine fridge", "done": false },
+        { "task": "Clear out garage fridge", "done": false },
+        { "task": "Put wine and bubbly in wine fridge", "done": false },
+        { "task": "Put food in garage fridge", "done": false },
+        { "task": "Prep the 2 hams (skin off, cloves, cider, in le creuset, boil, then in the fridge)", "done": false },
+        { "task": "Sharpen the knives", "done": false },
+        { "task": "Get the fancy cutlery out", "done": false },
+        { "task": "Get the fancy crockery out", "done": false },
+        { "task": "Get the serving dishes and serving implements out", "done": false },
+        { "task": "Sheets on the guest bed", "done": false },
+        { "task": "Get the presents out and under the tree", "done": false },
+        { "task": "Hang Elliott's curtains", "done": false },
+        { "task": "Put tools away", "done": false }
       ]
     },
     {
       "date": "24th",
       "title": "24th Dec (Christmas Eve)",
       "tasks": [
-        { "task": "TRIFLE - make in afternoon/evening, fridge overnight", "done": false },
-        { "task": "Defrost: Yorkshires, stuffing, red cabbage, pigs in blankets, dates in bacon", "done": false },
+        { "task": "Prep dates wrapped in bacon (freeze on tray)", "done": false },
+        { "task": "Defrost: Yorkshires, stuffing, red cabbage, pigs in blankets", "done": false },
         { "task": "Sprouts - defrost or cook from frozen? (Test one)", "done": false },
-        { "task": "Peel and parboil potatoes, rough up edges, back in fridge", "done": false },
+        { "task": "Peel potatoes and keep in water in fridge (no parboil)", "done": false },
         { "task": "Peel and chop parsnips, keep in cold water in fridge", "done": false },
         { "task": "Prep carrots", "done": false }
       ]
@@ -146,17 +160,6 @@
         "tasks": [
           { "task": "Turkey into OVEN 1 at 180°C", "done": false },
           { "task": "Baste every 45 mins", "done": false }
-        ]
-      },
-      {
-        "tMinus": -240,
-        "tMinusLabel": "T-4:00",
-        "title": "Ham simmering",
-        "duration": 180,
-        "type": "hob",
-        "tasks": [
-          { "task": "Ham into Le Creuset with water, cider, herbs, cloves", "done": false },
-          { "task": "Bring to boil, then simmer 3 hours", "done": false }
         ]
       },
       {
@@ -196,10 +199,11 @@
         "tMinus": -60,
         "tMinusLabel": "T-1:00",
         "title": "Ham glazing",
-        "duration": 40,
+        "duration": 50,
         "type": "oven2",
+        "note": "Ham pre-cooked on 23rd, coming from fridge - needs extra time to heat through",
         "tasks": [
-          { "task": "Ham out, drain, score fat in diamonds", "done": false },
+          { "task": "Ham out of fridge, score fat in diamonds", "done": false },
           { "task": "Maple syrup glaze", "done": false },
           { "task": "Into OVEN 2 at 200°C", "done": false }
         ]
@@ -257,11 +261,12 @@
         ]
       },
       {
-        "tMinus": -25,
-        "tMinusLabel": "T-0:25",
+        "tMinus": -45,
+        "tMinusLabel": "T-0:45",
         "title": "Stuffing",
-        "duration": 20,
+        "duration": 35,
         "type": "oven2",
+        "note": "Goes in at same time as pigs in blankets",
         "tasks": [
           { "task": "Stuffing into oven to warm through", "done": false }
         ]
@@ -297,22 +302,23 @@
         ]
       },
       {
-        "tMinus": -5,
-        "tMinusLabel": "T-0:05",
+        "tMinus": -15,
+        "tMinusLabel": "T-0:15",
         "title": "Carving",
-        "duration": 5,
+        "duration": 15,
         "tasks": [
           { "task": "Carve turkey onto platter", "done": false },
           { "task": "Slice ham", "done": false }
         ]
       },
       {
-        "tMinus": -3,
-        "tMinusLabel": "T-0:03",
+        "tMinus": -10,
+        "tMinusLabel": "T-0:10",
         "title": "Final plating",
-        "duration": 3,
+        "duration": 10,
         "tasks": [
-          { "task": "Everything into serving dishes", "done": false },
+          { "task": "Dish up plates for the kids", "done": false },
+          { "task": "Everything into serving bowls for adults (self-serve)", "done": false },
           { "task": "Gravy into boats", "done": false },
           { "task": "Sauces on table", "done": false }
         ]
@@ -336,8 +342,10 @@
         "type": "dessert",
         "duration": 30,
         "tasks": [
-          { "task": "Trifle + whipped cream", "done": false },
-          { "task": "Christmas pudding (microwave)", "done": false }
+          { "task": "Roullade (Liz's plan)", "done": false },
+          { "task": "Christmas pudding 1 (GF) - microwave 2-3 mins", "done": false },
+          { "task": "Christmas pudding 2 (regular) - microwave 2-3 mins separately", "done": false },
+          { "task": "Serve with cream/brandy butter", "done": false }
         ]
       }
     ]
@@ -349,90 +357,90 @@
       {
         "name": "Breakfast (Fried Egg Muffins)",
         "items": [
-          { "item": "GF muffins (Liberate or Promise brand)", "have": false },
-          { "item": "Smoked salmon", "have": false },
-          { "item": "Eggs (plenty - breakfast + yorkshires)", "have": false },
-          { "item": "Butter (lots)", "have": false },
-          { "item": "Ketchup", "have": null, "checkPantry": true }
+          { "item": "GF muffins (Liberate or Promise brand)", "have": true },
+          { "item": "Smoked salmon", "have": true },
+          { "item": "Eggs (plenty - breakfast + yorkshires)", "have": true },
+          { "item": "Butter (lots)", "have": true },
+          { "item": "Ketchup", "have": true, "checkPantry": true }
         ]
       },
       {
         "name": "Gravy",
         "items": [
-          { "item": "Tesco Finest fresh turkey gravy (NOT granules, NOT canned)", "have": false }
+          { "item": "Tesco Finest fresh turkey gravy (NOT granules, NOT canned)", "have": true }
         ]
       },
       {
         "name": "Ham Boil & Glaze",
         "items": [
-          { "item": "Cider (couple of bottles - drink the rest)", "have": false },
-          { "item": "Bay leaves", "have": null, "checkPantry": true },
-          { "item": "Cloves", "have": null, "checkPantry": true },
-          { "item": "Maple syrup for glaze", "have": false }
+          { "item": "Cider (couple of bottles - drink the rest)", "have": true },
+          { "item": "Bay leaves", "have": true, "checkPantry": true },
+          { "item": "Cloves", "have": true, "checkPantry": true },
+          { "item": "Maple syrup for glaze", "have": true }
         ]
       },
       {
         "name": "Sausage & Chestnut Stuffing",
         "items": [
-          { "item": "Sausagemeat (or good sausages to squeeze out)", "have": false },
-          { "item": "Vacuum pack chestnuts (pre-cooked, peeled)", "have": false },
-          { "item": "Fresh sage", "have": false },
-          { "item": "Fresh thyme", "have": false },
-          { "item": "Onions", "have": false },
-          { "item": "Breadcrumbs (or GF bread to blitz)", "have": null, "checkPantry": true },
-          { "item": "Egg (for binding)", "have": false, "note": "covered by eggs above" }
+          { "item": "Sausagemeat (or good sausages to squeeze out)", "have": true },
+          { "item": "Vacuum pack chestnuts (pre-cooked, peeled)", "have": true },
+          { "item": "Fresh sage", "have": true },
+          { "item": "Fresh thyme", "have": true },
+          { "item": "Onions", "have": true },
+          { "item": "Breadcrumbs (or GF bread to blitz)", "have": true, "checkPantry": true },
+          { "item": "Egg (for binding)", "have": true, "note": "covered by eggs above" }
         ]
       },
       {
         "name": "Dates in Bacon",
         "items": [
-          { "item": "Medjool dates", "have": false },
-          { "item": "Streaky bacon", "have": null, "checkPantry": true, "note": "or using leftover from pigs in blankets?" }
+          { "item": "Medjool dates", "have": true },
+          { "item": "Streaky bacon", "have": true, "checkPantry": true, "note": "or using leftover from pigs in blankets?" }
         ]
       },
       {
         "name": "Yorkshire Puddings",
         "items": [
-          { "item": "Eggs", "have": false, "note": "covered above" },
-          { "item": "GF flour", "have": null, "checkPantry": true },
-          { "item": "Milk", "have": false }
+          { "item": "Eggs", "have": true, "note": "covered above" },
+          { "item": "GF flour", "have": true, "checkPantry": true },
+          { "item": "Milk", "have": true }
         ]
       },
       {
         "name": "Carrots",
         "items": [
-          { "item": "Carrots (big bag)", "have": false },
-          { "item": "Honey (for butter & honey finish)", "have": null, "checkPantry": true }
+          { "item": "Carrots (big bag)", "have": true },
+          { "item": "Honey (for butter & honey finish)", "have": true, "checkPantry": true }
         ]
       },
       {
         "name": "Potatoes",
         "items": [
-          { "item": "Big bag roasting potatoes (Maris Piper or King Edward)", "have": false }
+          { "item": "Big bag roasting potatoes (Maris Piper or King Edward)", "have": true }
         ]
       },
       {
         "name": "Parsnips",
         "items": [
-          { "item": "Parsnips (good sized bag)", "have": false },
-          { "item": "Maple syrup (sharing with ham glaze)", "have": false, "note": "covered above" }
+          { "item": "Parsnips (good sized bag)", "have": true },
+          { "item": "Maple syrup (sharing with ham glaze)", "have": true, "note": "covered above" }
         ]
       },
       {
-        "name": "Trifle (make Christmas Eve)",
+        "name": "Trifle (CANCELLED - Roullade instead)",
         "items": [
-          { "item": "Sponge fingers (or use leftover cake?)", "have": false },
-          { "item": "Sherry", "have": null, "checkPantry": true },
-          { "item": "Raspberry jam", "have": null, "checkPantry": true },
-          { "item": "Frozen raspberries or tinned fruit", "have": false },
-          { "item": "Fresh custard (Tesco Finest, big pot)", "have": false },
-          { "item": "Double cream (for topping)", "have": false }
+          { "item": "Sponge fingers (or use leftover cake?)", "have": true, "note": "Not needed - trifle cancelled" },
+          { "item": "Sherry", "have": true, "checkPantry": true },
+          { "item": "Raspberry jam", "have": true, "checkPantry": true },
+          { "item": "Frozen raspberries or tinned fruit", "have": true, "note": "Not needed - trifle cancelled" },
+          { "item": "Fresh custard (Tesco Finest, big pot)", "have": true, "note": "Not needed - trifle cancelled" },
+          { "item": "Double cream (for topping)", "have": true, "note": "Not needed - trifle cancelled" }
         ]
       },
       {
         "name": "Other",
         "items": [
-          { "item": "Butter (can never have too much)", "have": false }
+          { "item": "Butter (can never have too much)", "have": true }
         ]
       }
     ]

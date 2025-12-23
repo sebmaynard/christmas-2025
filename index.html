@@ -881,7 +881,7 @@
             <h3>${cat.name}</h3>
             <ul>
               ${cat.items.map(i => `
-                <li>${i.item}${i.checkPantry ? ' <span class="check-pantry">(check pantry)</span>' : ''}</li>
+                <li class="${i.have ? 'task-done' : ''}">${i.item}${i.checkPantry ? ' <span class="check-pantry">(check pantry)</span>' : ''}</li>
               `).join('')}
             </ul>
           `).join('')}
@@ -891,7 +891,7 @@
 
     function renderSebMode() {
       const container = document.getElementById('seb-view');
-      
+
       container.innerHTML = `
         <div class="seb-card">
           <h2>Menu Status</h2>
@@ -915,21 +915,6 @@
                 </li>
               `).join('')}
             </ul>
-          `).join('')}
-        </div>
-
-        <div class="seb-card">
-          <h2>Shopping — ${data.shopping.orderDate || 'Monday 22nd'}</h2>
-          ${getShopping().map(cat => `
-            <div class="shopping-category">
-              <h4>${cat.name}</h4>
-              ${cat.items.map(i => `
-                <div class="shopping-item">
-                  <span>☐ ${i.item}</span>
-                  ${i.checkPantry ? '<span class="check-pantry">check?</span>' : ''}
-                </div>
-              `).join('')}
-            </div>
           `).join('')}
         </div>
 
@@ -966,6 +951,21 @@
               <span style="background: var(--bg-dark); padding: 0.15rem 0.35rem; border-radius: 3px; font-size: 0.7rem;">${item}</span>
             `).join('')}
           </div>
+        </div>
+
+        <div class="seb-card">
+          <h2>Shopping — ${data.shopping.orderDate || 'Monday 22nd'}</h2>
+          ${getShopping().map(cat => `
+            <div class="shopping-category">
+              <h4>${cat.name}</h4>
+              ${cat.items.map(i => `
+                <div class="shopping-item">
+                  <span>${i.have ? '✓' : '☐'} ${i.item}</span>
+                  ${i.checkPantry ? '<span class="check-pantry">check?</span>' : ''}
+                </div>
+              `).join('')}
+            </div>
+          `).join('')}
         </div>
       `;
 
