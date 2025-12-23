@@ -123,7 +123,7 @@
         { "task": "Hang Elliott's curtains", "done": true },
         { "task": "Put tools away", "done": true },
         { "task": "Clean the footstool", "done": false },
-{ "task": "Get the stocking presents out and hide them somewhere... in individual bags", "done": false }
+{ "task": "Get the stocking presents out and hide them somewhere... in individual bags", "done": true }
       ]
     },
     {
