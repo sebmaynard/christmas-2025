@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+1<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -779,7 +779,7 @@
       
       <div class="time-setter">
         <label for="eating-time">Eating at:</label>
-        <input type="time" id="eating-time" value="14:00">
+        <input type="time" id="eating-time" value="13:30">
       </div>
     </div>
   </header>
@@ -827,7 +827,7 @@
 
     // State
     let currentMode = 'seb';
-    let eatingTime = '14:00';
+    let eatingTime = '13:30';
 
     // Load data from JSON file
     async function loadData() {
@@ -877,10 +877,12 @@
 
       // Group items by type (swimlane)
       const swimlanes = {
-        'OVEN 1': [],
-        'OVEN 2': [],
+        'OVEN1': [],
+        'OVEN2': [],
         'HOB': [],
-        'AIR FRYER': [],
+        'STEAMER': [],
+        'AIRFRYER': [],
+        'MICROWAVE': [],
         'OTHER': []
       };
 
@@ -901,11 +903,8 @@
 
         let swimlane = 'OTHER';
         if (item.type) {
-          const type = item.type.toUpperCase();
-          if (type === 'OVEN1') swimlane = 'OVEN 1';
-          else if (type === 'OVEN2') swimlane = 'OVEN 2';
-          else if (type === 'HOB') swimlane = 'HOB';
-          else if (type === 'AIRFRYER') swimlane = 'AIR FRYER';
+            const type = item.type.toUpperCase();
+            if (type in swimlanes) swimlane = type;
         }
 
         swimlanes[swimlane].push({
@@ -1078,16 +1077,6 @@
 
       container.innerHTML = `
         <div class="seb-card">
-          <h2>Menu Status</h2>
-          ${[...data.menu.mains, ...data.menu.sides, ...data.menu.desserts].map(item => `
-            <div class="menu-item">
-              <span class="menu-item-name">${item.name}</span>
-              <span class="status-badge ${getStatusClass(item.status)}">${getStatusLabel(item.status)}</span>
-            </div>
-          `).join('')}
-        </div>
-
-        <div class="seb-card">
           <h2>Now → 24th Dec</h2>
           ${data.keyDates.map(kd => `
             <h4 style="color: var(--text-secondary); font-size: 0.7rem; margin: 0.5rem 0 0.25rem;">${kd.title}</h4>
@@ -1119,6 +1108,16 @@
             `).join('')}
             </tbody>
           </table>
+        </div>
+
+        <div class="seb-card">
+          <h2>Menu Status</h2>
+          ${[...data.menu.mains, ...data.menu.sides, ...data.menu.desserts].map(item => `
+            <div class="menu-item">
+              <span class="menu-item-name">${item.name}</span>
+              <span class="status-badge ${getStatusClass(item.status)}">${getStatusLabel(item.status)}</span>
+            </div>
+          `).join('')}
         </div>
 
         <div class="seb-card">

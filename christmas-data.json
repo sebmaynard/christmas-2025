@@ -143,8 +143,7 @@
     "note": "All times relative to eating time (T). Durations reflect actual cooking/task times.",
     "timeline": [
       {
-        "tMinus": -360,
-        "tMinusLabel": "T-6:00",
+        "tMinus": -315,
         "title": "Turkey to room temp",
         "duration": 60,
         "note": "Adjust start time based on actual turkey weight - this assumes ~4.5kg",
@@ -153,148 +152,19 @@
         ]
       },
       {
-        "tMinus": -300,
-        "tMinusLabel": "T-5:00",
+        "tMinus": -255,
         "title": "Turkey roasting",
-        "duration": 210,
+        "duration": 150,
         "type": "oven1",
-        "note": "⚠️ RECALCULATE once weighed! ~45 mins per kg at 180°C. Current estimate assumes ~4.5kg bird.",
+        "note": "⚠️ 2 1/2 for 4.5kg Turkey @ 180°C (+90 rest, + 15 carve)",
         "tasks": [
-          { "task": "Turkey into OVEN 1 at 180°C", "done": false },
+          { "task": "Turkey covered and upside down into OVEN 1 at 180°C", "done": false },
+          { "task": "Flip 1 hour before end and uncover", "done": false },
           { "task": "Baste every 45 mins", "done": false }
         ]
       },
       {
-        "tMinus": -90,
-        "tMinusLabel": "T-1:30",
-        "title": "Turkey resting",
-        "duration": 90,
-        "tasks": [
-          { "task": "Turkey out (74°C internal), cover with foil to rest", "done": false },
-          { "task": "Crank OVEN 1 to 220°C for roasties", "done": false }
-        ]
-      },
-      {
-        "tMinus": -75,
-        "tMinusLabel": "T-1:15",
-        "title": "Roast potatoes",
-        "duration": 60,
-        "type": "oven1",
-        "tasks": [
-          { "task": "Goose fat in tray, get smoking hot", "done": false },
-          { "task": "Potatoes in, season well", "done": false },
-          { "task": "Turn halfway", "done": false }
-        ]
-      },
-      {
-        "tMinus": -55,
-        "tMinusLabel": "T-0:55",
-        "title": "Parsnips",
-        "duration": 40,
-        "type": "oven1",
-        "tasks": [
-          { "task": "Parsnips into oven with potatoes (separate tray)", "done": false },
-          { "task": "Drizzle with maple syrup for last 10 mins", "done": false }
-        ]
-      },
-      {
-        "tMinus": -60,
-        "tMinusLabel": "T-1:00",
-        "title": "Ham glazing",
-        "duration": 50,
-        "type": "oven2",
-        "note": "Ham pre-cooked on 23rd, coming from fridge - needs extra time to heat through",
-        "tasks": [
-          { "task": "Ham out of fridge, score fat in diamonds", "done": false },
-          { "task": "Maple syrup glaze", "done": false },
-          { "task": "Into OVEN 2 at 200°C", "done": false }
-        ]
-      },
-      {
-        "tMinus": -60,
-        "tMinusLabel": "T-1:00",
-        "title": "Red cabbage",
-        "duration": 60,
-        "type": "hob",
-        "tasks": [
-          { "task": "Red cabbage on low to reheat gently", "done": false }
-        ]
-      },
-      {
-        "tMinus": -45,
-        "tMinusLabel": "T-0:45",
-        "title": "Pigs in blankets",
-        "duration": 35,
-        "type": "oven2",
-        "tasks": [
-          { "task": "Pigs in blankets into OVEN 2 (can go alongside ham)", "done": false }
-        ]
-      },
-      {
-        "tMinus": -30,
-        "tMinusLabel": "T-0:30",
-        "title": "Sprouts & pancetta",
-        "duration": 20,
-        "type": "hob",
-        "tasks": [
-          { "task": "Fry pancetta until crispy", "done": false },
-          { "task": "Add sprouts, cook 15-20 mins", "done": false }
-        ]
-      },
-      {
-        "tMinus": -30,
-        "tMinusLabel": "T-0:30",
-        "title": "Gravy",
-        "duration": 30,
-        "type": "hob",
-        "tasks": [
-          { "task": "Gravy in pan, add turkey juices, keep warm", "done": false }
-        ]
-      },
-      {
-        "tMinus": -25,
-        "tMinusLabel": "T-0:25",
-        "title": "Carrots",
-        "duration": 15,
-        "type": "hob",
-        "tasks": [
-          { "task": "Carrots into steamer", "done": false },
-          { "task": "When done, toss in butter & honey", "done": false }
-        ]
-      },
-      {
-        "tMinus": -45,
-        "tMinusLabel": "T-0:45",
-        "title": "Stuffing",
-        "duration": 35,
-        "type": "oven2",
-        "note": "Goes in at same time as pigs in blankets",
-        "tasks": [
-          { "task": "Stuffing into oven to warm through", "done": false }
-        ]
-      },
-      {
-        "tMinus": -20,
-        "tMinusLabel": "T-0:20",
-        "title": "Ham resting",
-        "duration": 15,
-        "tasks": [
-          { "task": "Ham out, rest loosely covered", "done": false }
-        ]
-      },
-      {
-        "tMinus": -18,
-        "tMinusLabel": "T-0:18",
-        "title": "Yorkshires",
-        "duration": 15,
-        "type": "oven1",
-        "tasks": [
-          { "task": "Yorkshires in (high heat, 15 mins)", "done": false }
-        ]
-      },
-      {
         "tMinus": -180,
-        "tMinusLabel": "T-3:00",
         "title": "Dates in bacon (mid-morning snack)",
         "duration": 10,
         "type": "airfryer",
@@ -304,18 +174,147 @@
         ]
       },
       {
-        "tMinus": -15,
-        "tMinusLabel": "T-0:15",
-        "title": "Carving",
-        "duration": 15,
+        "tMinus": -105,
+        "title": "Turkey resting",
+        "duration": 90,
         "tasks": [
-          { "task": "Carve turkey onto platter", "done": false },
-          { "task": "Slice ham", "done": false }
+          { "task": "Turkey out (74°C internal), cover with foil to rest", "done": false },
+          { "task": "Crank OVEN 1 to 220°C for roasties", "done": false }
+        ]
+      },
+      {
+        "tMinus": -100,
+        "title": "Roast potatoes",
+        "duration": 100,
+        "type": "oven1",
+        "tasks": [
+          { "task": "10m: Par-boil potatoes, and Goose fat in tray, get smoking hot", "done": false },
+          { "task": "90m: Potatoes in, season well", "done": false },
+          { "task": "Turn halfway", "done": false }
+        ]
+      },
+      {
+        "tMinus": -60,
+        "title": "Parsnips (thick cut)",
+        "duration": 60,
+        "type": "oven1",
+        "tasks": [
+          { "task": "Parsnips into oven with potatoes (separate tray)", "done": false },
+          { "task": "Drizzle with maple syrup for last 10 mins", "done": false }
+        ]
+      },
+      {
+        "tMinus": -90,
+        "title": "Ham glazing",
+        "duration": 60,
+        "type": "oven2",
+        "tasks": [
+          { "task": "10m: Ham in tin, score fat in diamonds, maple syrup glaze", "done": false },
+          { "task": "Into OVEN 2 at 200°C; + 15 ham resting + 15 carving", "done": false }
         ]
       },
       {
         "tMinus": -10,
-        "tMinusLabel": "T-0:10",
+        "title": "Red cabbage",
+        "duration": 10,
+        "type": "microwave",
+        "tasks": [
+          { "task": "Red cabbage in microwave", "done": false }
+        ]
+      },
+      {
+        "tMinus": -35,
+        "title": "Pigs in blankets",
+        "duration": 35,
+        "type": "oven2",
+        "tasks": [
+          { "task": "Pigs in blankets into OVEN 2 (can go alongside ham)", "done": false }
+        ]
+      },
+      {
+        "tMinus": -20,
+        "title": "Sprouts",
+        "duration": 15,
+        "type": "steamer",
+        "tasks": [
+          { "task": "Fry pancetta until crispy", "done": false },
+          { "task": "Steam sprouts, cook 15-20 mins", "done": false }
+        ]
+      },
+      {
+        "tMinus": -10,
+        "title": "pancetta",
+        "duration": 10,
+        "type": "hob",
+        "tasks": [
+          { "task": "Fry pancetta until crispy", "done": false },
+          { "task": "Add half of sprouts in ham juice and pancetta, fry for 5", "done": false }
+        ]
+      },
+      {
+        "tMinus": -30,
+        "title": "Gravy",
+        "duration": 30,
+        "type": "hob",
+        "tasks": [
+          { "task": "Gravy in pan, add turkey juices, keep warm", "done": false }
+        ]
+      },
+      {
+        "tMinus": -15,
+        "title": "Carrots",
+        "duration": 15,
+        "type": "steamer",
+        "tasks": [
+          { "task": "Carrots into steamer", "done": false }
+        ]
+      },
+      {
+        "tMinus": -30,
+        "title": "Extra stuffing",
+        "duration": 30,
+        "type": "oven2",
+        "tasks": [
+          { "task": "Stuffing into oven 2 to warm through", "done": false }
+        ]
+      },
+      {
+        "tMinus": -25,
+        "title": "Stuffing Ring",
+        "duration": 25,
+        "type": "oven1",
+        "tasks": [
+          { "task": "Stuffing ring into oven 1 to warm through", "done": false }
+        ]
+      },
+      {
+        "tMinus": -30,
+        "title": "Ham resting",
+        "duration": 15,
+        "tasks": [
+          { "task": "Ham out, rest loosely covered", "done": false }
+        ]
+      },
+      {
+        "tMinus": -5,
+        "title": "Yorkshires",
+        "duration": 5,
+        "type": "oven2",
+        "tasks": [
+          { "task": "(pre-cooked) Yorkshires in oven 2 (high heat, 5 mins)", "done": false }
+        ]
+      },
+      {
+        "tMinus": -15,
+        "title": "Carving",
+        "duration": 15,
+        "tasks": [
+          { "task": "Carve turkey onto platter, half into glass pyrex with gravy", "done": false },
+          { "task": "Slice ham", "done": false }
+        ]
+      },
+      {
+        "tMinus": 0,
         "title": "Final plating",
         "duration": 10,
         "tasks": [
@@ -326,8 +325,7 @@
         ]
       },
       {
-        "tMinus": 0,
-        "tMinusLabel": "T-0:00",
+        "tMinus": 10,
         "title": "EAT!",
         "type": "eating",
         "duration": 60,
@@ -339,7 +337,6 @@
       },
       {
         "tMinus": 75,
-        "tMinusLabel": "T+1:15",
         "title": "Dessert",
         "type": "dessert",
         "duration": 30,
