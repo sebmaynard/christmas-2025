@@ -779,7 +779,7 @@
       
       <div class="time-setter">
         <label for="eating-time">Eating at:</label>
-        <input type="time" id="eating-time" value="13:30">
+        <input type="time" id="eating-time" value="13:20">
       </div>
     </div>
   </header>
@@ -827,7 +827,7 @@
 
     // State
     let currentMode = 'seb';
-    let eatingTime = '13:30';
+    let eatingTime = '13:20';
 
     // Load data from JSON file
     async function loadData() {
@@ -1102,6 +1102,7 @@
               <tr>
                 <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-secondary); padding: 0.15rem 0.3rem 0.15rem 0; vertical-align: top; white-space: nowrap;">${addMinutesToTime(eatingTime, slot.tMinus)}</td>
                 <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--text-muted); padding: 0.15rem 0.3rem 0.15rem 0; vertical-align: top; white-space: nowrap;">${slot.duration ? (slot.duration >= 60 ? Math.floor(slot.duration / 60) + 'h' + (slot.duration % 60 ? slot.duration % 60 + 'm' : '') : slot.duration + 'm') : ''}</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--text-muted); padding: 0.15rem 0.3rem 0.15rem 0; vertical-align: top; white-space: nowrap;">${slot.type ? slot.type : 'other'}</td>
                 <td style="padding: 0.15rem 0.3rem 0.15rem 0; vertical-align: top; white-space: nowrap; font-weight: 600; font-size: 0.7rem;">${slot.title}</td>
                 <td style="padding: 0.15rem 0; vertical-align: top; color: var(--text-secondary); font-size: 0.65rem;">${slot.tasks.map(t => getTaskText(t)).join('<br>')}</td>
               </tr>

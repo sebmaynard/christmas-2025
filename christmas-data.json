@@ -107,22 +107,22 @@
       "title": "23rd Dec",
       "tasks": [
         { "task": "Collect turkey, ham and bacon from butchers", "done": true },
-        { "task": "WEIGH THE TURKEY - update the plan!", "done": false, "important": true },
+        { "task": "WEIGH THE TURKEY - update the plan!", "done": true, "important": true },
         { "task": "Clean ovens, shelves and trays (white ash)", "done": true },
         { "task": "Clear out wine fridge", "done": true },
         { "task": "Clear out garage fridge", "done": true },
         { "task": "Put wine and bubbly in wine fridge", "done": true },
         { "task": "Put food in garage fridge", "done": true },
         { "task": "Prep the 2 hams (skin off, cloves, cider, in le creuset, boil, then in the fridge)", "done": true },
-        { "task": "Sharpen the knives", "done": false },
+        { "task": "Sharpen the knives", "done": true },
         { "task": "Get the fancy cutlery out", "done": true },
-        { "task": "Get the fancy crockery out", "done": false },
+        { "task": "Get the fancy crockery out", "done": true },
         { "task": "Get the serving dishes and serving implements out", "done": false },
         { "task": "Sheets on the guest bed", "done": true },
         { "task": "Get the presents out and under the tree", "done": true },
         { "task": "Hang Elliott's curtains", "done": true },
         { "task": "Put tools away", "done": true },
-        { "task": "Clean the footstool", "done": false },
+        { "task": "Clean the footstool", "done": true },
 { "task": "Get the stocking presents out and hide them somewhere... in individual bags", "done": true }
       ]
     },
@@ -131,11 +131,11 @@
       "title": "24th Dec (Christmas Eve)",
       "tasks": [
         { "task": "Prep dates wrapped in bacon (freeze on tray)", "done": false },
-        { "task": "Defrost: Yorkshires, stuffing, red cabbage, pigs in blankets", "done": false },
-        { "task": "Sprouts - defrost or cook from frozen? (Test one)", "done": false },
-        { "task": "Peel potatoes and keep in water in fridge (no parboil)", "done": false },
-        { "task": "Peel and chop parsnips, keep in cold water in fridge", "done": false },
-        { "task": "Prep carrots", "done": false }
+        { "task": "Defrost: stuffing, red cabbage, pigs in blankets", "done": false },
+        { "task": "Sprouts - defrost or cook from frozen? (Test one)", "done": true },
+        { "task": "Peel potatoes and keep in water in fridge (no parboil)", "done": true },
+        { "task": "Peel and chop parsnips, keep in cold water in fridge", "done": true },
+        { "task": "Prep carrots", "done": true }
       ]
     }
   ],
@@ -143,7 +143,7 @@
     "note": "All times relative to eating time (T). Durations reflect actual cooking/task times.",
     "timeline": [
       {
-        "tMinus": -315,
+        "tMinus": -285,
         "title": "Turkey to room temp",
         "duration": 60,
         "note": "Adjust start time based on actual turkey weight - this assumes ~4.5kg",
@@ -152,7 +152,7 @@
         ]
       },
       {
-        "tMinus": -255,
+        "tMinus": -225,
         "title": "Turkey roasting",
         "duration": 150,
         "type": "oven1",
@@ -167,16 +167,16 @@
         "tMinus": -180,
         "title": "Dates in bacon (mid-morning snack)",
         "duration": 10,
-        "type": "airfryer",
+        "type": "oven1",
         "tasks": [
           { "task": "Dates in bacon into air fryer", "done": false },
           { "task": "Serve as mid-morning nibble with drinks", "done": false }
         ]
       },
       {
-        "tMinus": -105,
+        "tMinus": -75,
         "title": "Turkey resting",
-        "duration": 90,
+        "duration": 60,
         "tasks": [
           { "task": "Turkey out (74°C internal), cover with foil to rest", "done": false },
           { "task": "Crank OVEN 1 to 220°C for roasties", "done": false }
@@ -194,16 +194,6 @@
         ]
       },
       {
-        "tMinus": -60,
-        "title": "Parsnips (thick cut)",
-        "duration": 60,
-        "type": "oven1",
-        "tasks": [
-          { "task": "Parsnips into oven with potatoes (separate tray)", "done": false },
-          { "task": "Drizzle with maple syrup for last 10 mins", "done": false }
-        ]
-      },
-      {
         "tMinus": -90,
         "title": "Ham glazing",
         "duration": 60,
@@ -214,12 +204,13 @@
         ]
       },
       {
-        "tMinus": -10,
-        "title": "Red cabbage",
-        "duration": 10,
-        "type": "microwave",
+        "tMinus": -60,
+        "title": "Parsnips (thick cut)",
+        "duration": 60,
+        "type": "oven1",
         "tasks": [
-          { "task": "Red cabbage in microwave", "done": false }
+          { "task": "Parsnips into oven with potatoes (separate tray)", "done": false },
+          { "task": "Drizzle with maple syrup for last 10 mins", "done": false }
         ]
       },
       {
@@ -229,6 +220,41 @@
         "type": "oven2",
         "tasks": [
           { "task": "Pigs in blankets into OVEN 2 (can go alongside ham)", "done": false }
+        ]
+      },
+      {
+        "tMinus": -30,
+        "title": "Gravy",
+        "duration": 30,
+        "type": "hob",
+        "tasks": [
+          { "task": "Gravy in pan, add turkey juices, keep warm", "done": false }
+        ]
+      },
+      {
+        "tMinus": -30,
+        "title": "Extra stuffing",
+        "duration": 30,
+        "type": "oven2",
+        "tasks": [
+          { "task": "Stuffing into oven 2 to warm through", "done": false }
+        ]
+      },
+      {
+        "tMinus": -30,
+        "title": "Ham resting",
+        "duration": 15,
+        "tasks": [
+          { "task": "Ham out, rest loosely covered", "done": false }
+        ]
+      },
+      {
+        "tMinus": -25,
+        "title": "Stuffing Ring",
+        "duration": 25,
+        "type": "oven1",
+        "tasks": [
+          { "task": "Stuffing ring into oven 1 to warm through", "done": false }
         ]
       },
       {
@@ -242,25 +268,6 @@
         ]
       },
       {
-        "tMinus": -10,
-        "title": "pancetta",
-        "duration": 10,
-        "type": "hob",
-        "tasks": [
-          { "task": "Fry pancetta until crispy", "done": false },
-          { "task": "Add half of sprouts in ham juice and pancetta, fry for 5", "done": false }
-        ]
-      },
-      {
-        "tMinus": -30,
-        "title": "Gravy",
-        "duration": 30,
-        "type": "hob",
-        "tasks": [
-          { "task": "Gravy in pan, add turkey juices, keep warm", "done": false }
-        ]
-      },
-      {
         "tMinus": -15,
         "title": "Carrots",
         "duration": 15,
@@ -270,47 +277,40 @@
         ]
       },
       {
-        "tMinus": -30,
-        "title": "Extra stuffing",
-        "duration": 30,
-        "type": "oven2",
-        "tasks": [
-          { "task": "Stuffing into oven 2 to warm through", "done": false }
-        ]
-      },
-      {
-        "tMinus": -25,
-        "title": "Stuffing Ring",
-        "duration": 25,
-        "type": "oven1",
-        "tasks": [
-          { "task": "Stuffing ring into oven 1 to warm through", "done": false }
-        ]
-      },
-      {
-        "tMinus": -30,
-        "title": "Ham resting",
-        "duration": 15,
-        "tasks": [
-          { "task": "Ham out, rest loosely covered", "done": false }
-        ]
-      },
-      {
-        "tMinus": -5,
-        "title": "Yorkshires",
-        "duration": 5,
-        "type": "oven2",
-        "tasks": [
-          { "task": "(pre-cooked) Yorkshires in oven 2 (high heat, 5 mins)", "done": false }
-        ]
-      },
-      {
         "tMinus": -15,
         "title": "Carving",
         "duration": 15,
         "tasks": [
           { "task": "Carve turkey onto platter, half into glass pyrex with gravy", "done": false },
           { "task": "Slice ham", "done": false }
+        ]
+      },
+      {
+        "tMinus": -12,
+        "title": "Yorkshires",
+        "duration": 12,
+        "type": "oven2",
+        "tasks": [
+          { "task": "(pre-cooked) Yorkshires in oven 2 (high heat, 10 mins)", "done": false }
+        ]
+      },
+      {
+        "tMinus": -10,
+        "title": "Red cabbage",
+        "duration": 10,
+        "type": "microwave",
+        "tasks": [
+          { "task": "Red cabbage in microwave", "done": false }
+        ]
+      },
+      {
+        "tMinus": -10,
+        "title": "pancetta",
+        "duration": 10,
+        "type": "hob",
+        "tasks": [
+          { "task": "Fry pancetta until crispy", "done": false },
+          { "task": "Add half of sprouts in ham juice and pancetta, fry for 5", "done": false }
         ]
       },
       {
